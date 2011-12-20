@@ -96,15 +96,15 @@ set(OPENCV_SOVERSION "${OPENCV_VERSION_MAJOR}.${OPENCV_VERSION_MINOR}")
 # we will never use output of the following command but cmake will rerun if version file changes
 configure_file("${OPENCV_VERSION_FILE}" "${CMAKE_BINARY_DIR}/junk/version.junk" COPYONLY)
 
-if(WIN32)
-    # Postfix of DLLs:
-    set(OPENCV_DLLVERSION "${OPENCV_VERSION_MAJOR}${OPENCV_VERSION_MINOR}${OPENCV_VERSION_PATCH}")
-    set(OPENCV_DEBUG_POSTFIX d)
-else()
-    # Postfix of so's:
+#if(WIN32)
+#    # Postfix of DLLs:
+#    set(OPENCV_DLLVERSION "${OPENCV_VERSION_MAJOR}${OPENCV_VERSION_MINOR}${OPENCV_VERSION_PATCH}")
+#    set(OPENCV_DEBUG_POSTFIX d)
+#else()
+#    # Postfix of so's:
     set(OPENCV_DLLVERSION "")
     set(OPENCV_DEBUG_POSTFIX)
-endif()
+#endif()
 
 #name mangling
 set(OPENCV_INCLUDE_PREFIX include)
