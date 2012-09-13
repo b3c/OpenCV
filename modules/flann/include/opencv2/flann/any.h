@@ -30,6 +30,12 @@ struct empty_any
 {
 };
 
+inline std::ostream& operator <<(std::ostream& out, const empty_any&)
+{
+    out << "[empty_any]";
+    return out;
+}
+
 struct base_any_policy
 {
     virtual void static_delete(void** x) = 0;
@@ -85,7 +91,7 @@ struct big_any_policy : typed_base_any_policy<T>
         **reinterpret_cast<T**>(dest) = **reinterpret_cast<T* const*>(src);
     }
     virtual void* get_value(void** src) { return *src; }
-    virtual void print(std::ostream& out, void* const* src) { out << *reinterpret_cast<T const*>(*src); }
+    virtual void print(std::ostream& out, void* const* src) { /*out << *reinterpret_cast<T const*>(*src)*/; }
 };
 
 template<typename T>

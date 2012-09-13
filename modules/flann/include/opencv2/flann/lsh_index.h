@@ -56,7 +56,7 @@ namespace cvflann
 
 struct LshIndexParams : public IndexParams
 {
-    LshIndexParams(unsigned int table_number, unsigned int key_size, unsigned int multi_probe_level)
+    LshIndexParams(unsigned int table_number = 12, unsigned int key_size = 20, unsigned int multi_probe_level = 2)
     {
         (* this)["algorithm"] = FLANN_INDEX_LSH;
         // The number of hash tables to use
@@ -86,7 +86,7 @@ public:
      * @param params parameters passed to the LSH algorithm
      * @param d the distance used
      */
-    LshIndex(const Matrix<ElementType>& input_data, const IndexParams& params = LshIndexParams(),
+    LshIndex(const Matrix<ElementType>& input_data, const IndexParams& params = LshIndexParams(0,0,0),
              Distance d = Distance()) :
         dataset_(input_data), index_params_(params), distance_(d)
     {
