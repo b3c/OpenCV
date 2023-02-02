@@ -1425,7 +1425,7 @@ void cv::resize( InputArray _src, OutputArray _dst, Size dsize,
     Mat src = _src.getMat();
     Size ssize = src.size();
     
-    CV_Assert( ssize.area() > 0 );
+    
     CV_Assert( !(dsize == Size()) || (inv_scale_x > 0 && inv_scale_y > 0) );
     if( dsize == Size() )
     {
